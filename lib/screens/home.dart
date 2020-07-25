@@ -10,7 +10,24 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      drawer: Drawer(),
+      drawer: showDrawer(),
     );
+  }
+
+  Drawer showDrawer() => Drawer(
+        child: ListView(
+          children: <Widget>[
+            showHeadDrawer(),
+            ListTile(
+              leading: Icon(Icons.android),
+              title: Text('Sign In'),
+            )
+          ],
+        ),
+      );
+
+  UserAccountsDrawerHeader showHeadDrawer() {
+    return UserAccountsDrawerHeader(
+        accountName: Text('Guest'), accountEmail: Text('Please Login'));
   }
 }
